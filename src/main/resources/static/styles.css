@@ -1,3 +1,4 @@
 nav > ul > li {
     list-style: none;
+    display: block;
 }

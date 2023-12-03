@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class HomeController {
 
@@ -22,21 +24,8 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("add")
-    public String displayAddForm(Model model) {
-        model.addAttribute("book", new Book());
-        model.addAttribute("books", bookRepository.findAll());
-        return "add";
-    }
 
-    @PostMapping("add")
-    public String processAddForm(@ModelAttribute @Valid Book newBook, Errors errors, Model model) {
-        if (errors.hasErrors()) {
-            return "add";
-        }
 
-        bookRepository.save(newBook);
-        return "redirect:/";
-    }
+
 
 }

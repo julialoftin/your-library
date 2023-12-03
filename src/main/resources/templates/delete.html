@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+
+<nav th:replace="~{fragments :: navigation}"></nav>
+
+<form method="post">
+    <table>
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Author</td>
+            <td>Title</td>
+            <td>ISBN</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td><input type="checkbox" name="selectedBooks" th:value="${book.id}"></td>
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.isbn}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <input type="submit" value="Delete" />
+</form>
+
+</body>
+</html>
