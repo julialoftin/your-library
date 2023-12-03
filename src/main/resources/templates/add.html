@@ -7,13 +7,18 @@
 
 <div>
     <form method="post">
-        <label th:for="author">Author </label>
-        <input th:field="${book.author}">
-
-        <label th:for="title">Title </label>
+        <label th:for="title">Title: </label>
         <input th:field="${book.title}" />
 
-        <label th:for="isbn">ISBN </label>
+<!--        <label th:for="author">Author First Name: </label>-->
+<!--        <input th:field="${author.firstName}">-->
+
+<!--        <label th:for="author">Author Last Name: </label>-->
+<!--        <input th:field="${author.lastName}">-->
+
+<!--        TODO: Add new Author Select field to replace above-->
+
+        <label th:for="isbn">ISBN: </label>
         <input th:field="${book.isbn}" />
 
         <input type="submit" value="Add Book" />

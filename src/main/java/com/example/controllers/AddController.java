@@ -1,6 +1,7 @@
 package com.example.controllers;
 
 import com.example.models.Book;
+import com.example.models.data.AuthorRepository;
 import com.example.models.data.BookRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class AddController {
 
     @Autowired
     BookRepository bookRepository;
+
+    @Autowired
+    AuthorRepository authorRepository;
 
     @GetMapping("add")
     public String displayAddForm(Model model) {

@@ -14,7 +14,8 @@ public class Book {
     private Integer id;
 
     @NotNull
-    private String author;
+    @ManyToOne
+    private Author author;
 
     @NotNull
     private String title;
@@ -26,11 +27,11 @@ public class Book {
         return id;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+
+<nav th:replace="~{fragments :: navigation}"></nav>
+
+<form>
+    <label th:for="author">First Name: </label>
+    <input th:field="${author.firstName}">
+
+    <label th:for="author">Last Name: </label>
+    <input th:field="${author.lastName}">
+
+    <input type="submit" value="Add Author">
+</form>
+
+</body>
+</html>
