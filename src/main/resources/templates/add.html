@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">Your Library</title>
+</head>
+<body>
+
+<div>
+    <form method="post">
+        <label th:for="author">Author </label>
+        <input th:field="${book.author}">
+        <label th:for="title">Title </label>
+        <input th:field="${book.title}" />
+        <label th:for="isbn">ISBN </label>
+        <input th:field="${book.isbn}" />
+
+
+        <input type="submit" value="Add Book" />
+    </form>
+</div>
+
+</body>
+</html>

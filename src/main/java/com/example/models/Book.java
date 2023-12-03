@@ -1,8 +1,8 @@
 package com.example.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.Objects;
 
@@ -12,8 +12,14 @@ public class Book {
     @Id
     @GeneratedValue
     private Integer id;
+
+    @NotNull
     private String author;
+
+    @NotNull
     private String title;
+
+    @NotNull
     private Integer isbn;
 
     public Integer getId() {
