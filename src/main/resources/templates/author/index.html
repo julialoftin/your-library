@@ -5,5 +5,22 @@
 
 <nav th:replace="~{fragments :: navigation}"></nav>
 
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="author : ${authors}">
+        <td th:text="${author.id}"></td>
+        <td th:text="${author.firstName}"></td>
+        <td th:text="${author.lastName}"></td>
+    </tr>
+    </tbody>
+</table>
+
 </body>
 </html>
