@@ -1,6 +1,7 @@
 package com.example.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
@@ -10,7 +11,11 @@ public class Author {
     @Id
     @GeneratedValue
     private Integer id;
+
+    @NotNull
     private String firstName;
+
+    @NotNull
     private String lastName;
 
     @OneToMany(mappedBy = "author")

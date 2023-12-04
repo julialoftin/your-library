@@ -18,9 +18,6 @@ public class AddController {
     @Autowired
     BookRepository bookRepository;
 
-    @Autowired
-    AuthorRepository authorRepository;
-
     @GetMapping("add")
     public String displayAddForm(Model model) {
         model.addAttribute("title", "Add a Book");
