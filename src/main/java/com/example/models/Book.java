@@ -10,11 +10,12 @@ import java.util.Objects;
 public class Book {
 
     @Id
-    @GeneratedValue
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "author_id", nullable = false)
     private Author author;
 
     @NotNull
@@ -22,6 +23,16 @@ public class Book {
 
     @NotNull
     private Integer isbn;
+
+    public Book() {
+    }
+
+    public Book(int id, Author author, String title, Integer isbn) {
+        this.id = id;
+        this.author = author;
+        this.title = title;
+        this.isbn = isbn;
+    }
 
     public Integer getId() {
         return id;

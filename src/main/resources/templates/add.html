@@ -6,23 +6,23 @@
 <nav th:replace="~{fragments :: navigation}"></nav>
 
 <div>
-    <form method="post">
+    <form method="post" th:object="${book}">
         <label th:for="title">Title: </label>
         <input th:field="${book.title}" />
 
-<!--        <label th:for="author">Author First Name: </label>-->
-<!--        <input th:field="${author.firstName}">-->
-
-<!--        <label th:for="author">Author Last Name: </label>-->
-<!--        <input th:field="${author.lastName}">-->
-
-<!--        TODO: Add new Author Select field to replace above-->
+        <label th:for="author">Author:
+            <select th:field="*{author.id}" name="author.id" required>
+                <option th:each="author : ${authors}" th:value="${author.id}"
+                th:text="${author.firstName + ' ' + author.lastName}"></option>
+            </select>
+        </label>
 
         <label th:for="isbn">ISBN: </label>
         <input th:field="${book.isbn}" />
 
         <input type="submit" value="Add Book" />
     </form>
+    <p th:text="${errorMessage}"></p>
 </div>
 
 </body>

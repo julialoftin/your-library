@@ -5,12 +5,12 @@
 
 <nav th:replace="~{fragments :: navigation}"></nav>
 
-<form method="post">
-    <label th:for="author">First Name: </label>
-    <input th:field="${author.firstName}">
+<form method="post" th:object="${author}">
+    <label th:for="${'author.firstName'}">First Name: </label>
+    <input th:field="*{firstName}" name="author.firstName">
 
-    <label th:for="author">Last Name: </label>
-    <input th:field="${author.lastName}">
+    <label th:for="${'author.lastName'}">Last Name: </label>
+    <input th:field="*{lastName}" name="author.lastName">
 
     <input type="submit" value="Add Author">
 </form>
