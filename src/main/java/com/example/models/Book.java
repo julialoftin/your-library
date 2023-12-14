@@ -4,38 +4,32 @@ package com.example.models;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
-import java.util.Objects;
-
 @Entity
-public class Book {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class Book extends AbstractEntity {
 
     @NotNull
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "author_id", nullable = false)
+    @JoinColumn(name = "author_id", nullable = true, foreignKey = @ForeignKey(name = "FK_Book_Author",
+            foreignKeyDefinition = "FOREIGN KEY (`author_id`) REFERENCES `author` (`id`) ON DELETE SET NULL"))
     private Author author;
 
     @NotNull
     private String title;
 
-    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "genre_id")
+    private Genre genre;
+
     private Integer isbn;
 
     public Book() {
     }
 
-    public Book(int id, Author author, String title, Integer isbn) {
-        this.id = id;
+    public Book(Author author, String title, Integer isbn) {
+        super();
         this.author = author;
         this.title = title;
         this.isbn = isbn;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public Author getAuthor() {
@@ -54,6 +48,14 @@ public class Book {
         this.title = title;
     }
 
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
     public Integer getIsbn() {
         return isbn;
     }
@@ -63,15 +65,11 @@ public class Book {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Book book = (Book) o;
-        return Objects.equals(id, book.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
+    public String toString() {
+        return "Book{" +
+                "author=" + author +
+                ", title='" + title + '\'' +
+                ", isbn=" + isbn +
+                '}';
     }
 }

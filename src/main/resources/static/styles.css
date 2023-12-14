@@ -1,4 +1,3 @@
-nav > ul > li {
-    list-style: none;
-    display: block;
+.navbar-nav .dropdown-toggle {
+    text-decoration: none !important;
 }

@@ -7,8 +7,10 @@
 
 <div>
     <form method="post" th:object="${book}">
-        <label th:for="title">Title: </label>
-        <input th:field="${book.title}" />
+
+        <label th:for="title">Title:
+            <input th:field="${book.title}" />
+        </label>
 
         <label th:for="author">Author:
             <select th:field="*{author.id}" name="author.id" required>
@@ -16,14 +18,27 @@
                 th:text="${author.firstName + ' ' + author.lastName}"></option>
             </select>
         </label>
+        <br>
 
-        <label th:for="isbn">ISBN: </label>
-        <input th:field="${book.isbn}" />
+        <label th:for="genre">Genre:
+            <select th:field="*{genre.id}" name="genre.id" required>
+                <option th:each="genre : ${allGenres}" th:value="${genre.id}"
+                th:text="${genre.name}"></option>
+            </select>
+        </label>
+
+        <label th:for="isbn">ISBN:
+            <input th:field="${book.isbn}" />
+        </label>
 
         <input type="submit" value="Add Book" />
-    </form>
-    <p th:text="${errorMessage}"></p>
-</div>
 
+    </form>
+
+    <p th:text="${errorMessage}"></p>
+
+</div>
+<script th:src="@{/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
 </body>
 </html>

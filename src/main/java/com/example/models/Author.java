@@ -7,11 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Author {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class Author extends AbstractEntity {
 
     @NotNull
     private String firstName;
@@ -24,14 +20,10 @@ public class Author {
 
     public Author() {}
 
-    public Author(int id, String firstName, String lastName) {
-        this.id = id;
+    public Author(String firstName, String lastName) {
+        super();
         this.firstName = firstName;
         this.lastName = lastName;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public String getFirstName() {
@@ -59,23 +51,7 @@ public class Author {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Author author = (Author) o;
-        return Objects.equals(id, author.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    @Override
     public String toString() {
-        return "Author{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
+        return firstName + " " + lastName;
     }
 }

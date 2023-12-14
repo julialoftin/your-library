@@ -11,6 +11,7 @@
         <td>ID</td>
         <td>Author</td>
         <td>Title</td>
+        <td>Genre</td>
         <td>ISBN</td>
     </tr>
     </thead>
@@ -19,10 +20,12 @@
         <td th:text="${book.id}"></td>
         <td th:text="${book.author.firstName + ' ' + book.author.lastName}"></td>
         <td th:text="${book.title}"></td>
+        <td th:text="${book.genre.name}"></td>
         <td th:text="${book.isbn}"></td>
     </tr>
     </tbody>
 </table>
-
+<script th:src="@{/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
 </body>
 </html>

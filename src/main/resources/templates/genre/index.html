@@ -5,15 +5,20 @@
 
 <nav th:replace="~{fragments :: navigation}"></nav>
 
-<form method="post" th:object="${author}">
-    <label th:for="${'author.firstName'}">First Name: </label>
-    <input th:field="*{firstName}" name="author.firstName">
-
-    <label th:for="${'author.lastName'}">Last Name: </label>
-    <input th:field="*{lastName}" name="author.lastName">
-
-    <input type="submit" value="Add Author">
-</form>
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>Genre</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="genre : ${allGenres}">
+        <td th:text="${genre.id}"></td>
+        <td th:text="${genre.name}"></td>
+    </tr>
+    </tbody>
+</table>
 <script th:src="@{/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js}"></script>
 <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
 </body>
